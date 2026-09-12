@@ -1,12 +1,11 @@
-
 .section .bss
 .global ram
-.lcomm ram, 0x100         #256 in decimal 
+.lcomm ram, 256          # 0x100
 
 .section .text
-.global reserve
-reserve:
-
+.global fill_ram
+fill_ram:
+    # Store FFh into RAM locations 50H - 58H using direct addressing
     movb $0xFF, ram+0x50
     movb $0xFF, ram+0x51
     movb $0xFF, ram+0x52
